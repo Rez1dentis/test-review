@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './InputNewTodo.module.css'
 
 type InputNewTodoProps = {
-    todoTitle: string,
+    todoTitle: string, // пропсы должны начинаться с заглавной буквы
     onChange: (todoTitle: string) => void,
-    onSubmit: (todo: any) => void,
+    onSubmit: (todo: any) => void, // плохое название
 
 }
 type InputNewTodoState = {
@@ -23,17 +23,17 @@ export class InputNewTodo extends React.Component<InputNewTodoProps, InputNewTod
     }
 
     handleKeyDown = (event: React.KeyboardEvent) => {
-        if (event.keyCode !== 13) {
+        if (event.keyCode !== 13) {  // Должно быть event.key
             return;
         }
 
         event.preventDefault();
 
-        var val = this.state.value.trim();
+        var val = this.state.value.trim();  // const вместо var
 
-        if (val) {
+        if (val) { 
             this.props.onSubmit({
-                title: this.state.value,
+                title: this.state.value, // можно переиспользовать val
                 isDone: false,
             });
             this.props.onChange('');
