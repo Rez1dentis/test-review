@@ -77,6 +77,8 @@ class Index extends React.Component<MainAppProps, MainAppState> {
     }
 }
 
+// вынести в отдельный компонент
+
 export default connect(
     (state) => ({}),
     (dispatch) => ({
