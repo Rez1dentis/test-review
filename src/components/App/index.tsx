@@ -1,5 +1,5 @@
-import React from 'react';
-import logo from '../../logo.svg';
+// import React from 'react';
+// import logo from '../../logo.svg';
 import './App.css';
 import MainApp from '../MainApp';
 import {
@@ -16,7 +16,7 @@ function App() {
         {/*<img src={logo} className="App-logo" alt="logo" />*/}
       </header>
         {/* MAIN APP: */}
-        <MainApp todos={todos}/>
+        <MainApp todos={todos}/> {/* пропс не типизирован */}
 
         <footer className='App-footer'>
               <a
@@ -32,3 +32,6 @@ function App() {
 }
 
 export default App;
+
+// PS удалить неиспользуемые файлы
+// Использовать модули css
