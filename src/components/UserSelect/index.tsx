@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './UserSelect.module.css';
 
 type UserSelectProps = {
-    user?: number,
+    user?: number, // должен быть string
     idx: number,
 }
 
@@ -17,7 +17,7 @@ function UserSelect(props: UserSelectProps) {
                 (users) => users.json(),
             ).then(users => setOptions(users))
         },
-        [],
+        [],  // нет зависимостей
     )
     const [options, setOptions] = React.useState([]);
 
@@ -25,7 +25,7 @@ function UserSelect(props: UserSelectProps) {
     const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const changedTodos = todos.map((t, index) => {
             const res = { ...t }
-            if (index == idx) {
+            if (index == idx) { // ===
                 console.log('props.user', props.user);
                 res.user = e.target.value;
             }
@@ -36,7 +36,7 @@ function UserSelect(props: UserSelectProps) {
 
     return (
         <select name="user" className={styles.user} onChange={handleChange}>
-            {options.map((user: any) => <option value={user.id}>{user.name}</option>)}
+            {options.map((user: any) => <option value={user.id}>{user.name}</option>)} {/* в map нет key */}
         </select>
     );
 }
